@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --warna-1: #FFF0D1;
+    --warna-2: #3B3030;
+    --warna-3: #795757;
+    --warna-4: #664343;
+}
+
+.navbar {
+    background-color: var(--warna-1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+.navbar-brand .navbar-item {
+    color: var(--warna-2);
+}
+
+.navbar-brand span {
+    color: var(--warna-3);
+}
+
+.navbar-nav a:hover {
+    color: var(--warna-1);
+    background-color: var(--warna-3);
+    border-radius: 30px;
+}
+
+.banner {
+    background: url('../img/background.jpg') no-repeat center center;
+    background-size: cover;
+    padding-top: 15%;
+    padding-bottom: 20%;
+    color: var(--warna-2);
+}
+
+/* .card {
+    margin-bottom: 20px;
+}
+
+.row {
+    row-gap: 20px; /* mengatur jarak antar baris
+} 
