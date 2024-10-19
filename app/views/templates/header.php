@@ -14,7 +14,7 @@
 
     <nav class="navbar fixed-top navbar-expand-lg shadow">
         <div class="container-fluid">
-        <a class="navbar-brand col-lg-3 ms-5 fs-4" href="#">Payu <span>Melali</span>.</a>
+        <a class="navbar-brand col-lg-3 ms-5 fs-4" href="<?= BASEURL ?>">Payu <span>Melali</span>.</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
