@@ -11,10 +11,15 @@ class Flasher {
 
     public static function getFlash() {
         if(isset($_SESSION['flash'])) {
-            echo '<div class="alert alert-'. $_SESSION['flash']['tipe'] .' alert-dismissible fade show" role="alert">
-               Blog <strong> '. $_SESSION['flash']['pesan'] .'</strong> '. $_SESSION['flash']['aksi'] .'  
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>';
+            echo "
+                <script>
+                    Swal.fire({
+                        icon: '". $_SESSION['flash']['tipe'] ."',
+                        title: '". $_SESSION['flash']['pesan'] ."',
+                        text: '". $_SESSION['flash']['aksi'] ."'
+                    })
+                </script>
+            ";
             
             unset($_SESSION['flash']);
         }

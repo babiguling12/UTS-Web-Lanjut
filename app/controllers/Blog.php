@@ -12,11 +12,11 @@ class Blog extends Controller {
 
     public function tambah() {
         if($this->model('Blog_model')->tambahBlog($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            Flasher::setFlash('Data berhasil', 'ditambahkan', 'success');
             header('Location: ' . BASEURL . '/blog');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            Flasher::setFlash('Data gagal', 'ditambahkan', 'danger');
             header('Location: ' . BASEURL . '/blog');
             exit;
         }
@@ -24,11 +24,11 @@ class Blog extends Controller {
 
     public function edit() {
         if($this->model('Blog_model')->editBlog($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'diedit', 'success');
+            Flasher::setFlash('Data berhasil', 'diedit', 'success');
             header('Location: ' . BASEURL . '/blog');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'diedit', 'danger');
+            Flasher::setFlash('Data gagal', 'diedit', 'danger');
             header('Location: ' . BASEURL . '/blog');   
             exit;
         }
@@ -39,12 +39,15 @@ class Blog extends Controller {
     }
 
     public function hapus($id) {
+        $blog = $this->model('Blog_model')->getBlogById($id);
+
         if($this->model('Blog_model')->hapusBlog($id) > 0) {
-            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            unlink('img/' . $blog['gambar']);
+            Flasher::setFlash('Data berhasil', 'dihapus', 'success');
             header('Location: ' . BASEURL . '/blog');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            Flasher::setFlash('Data gagal', 'dihapus', 'danger');
             header('Location: ' . BASEURL . '/blog');
             exit;
         }

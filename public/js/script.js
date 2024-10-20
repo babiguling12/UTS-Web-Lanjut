@@ -1,4 +1,14 @@
 $(document).ready(function() {
+ 
+   $('.tombolTambah').on('click', function() {
+        $('#judulModal').html('Tambah Data Blog');
+        $('.modal-footer button[type=submit').html('Tambah Data');
+        $('#id').val('');
+        $('#judul').val('');
+        $('#sub_judul').val('');
+        $('#deskripsi').val('');
+        $('#gambar').val(''); 
+   });
 
     $('.tampilModalEdit').on('click', function() {
         $('#judulModal').html('Edit Data Blog');
@@ -18,17 +28,22 @@ $(document).ready(function() {
                 $('#sub_judul').val(data.sub_judul);
                 $('#deskripsi').val(data.deskripsi);
                 $('#gambar').val(data.gambar);   
+                $('#gambarLama').val(data.gambarLama);
             }
         });
+
+
+        $('#previewImg').attr('src', 'http://localhost/utsweblanjut/public/img/' + $(this).data('gambar'));
     });
     
     let idToDelete;
 
-    $(document).on('click', '.tampilModalHapus', function() {
+    $('.tampilModalHapus').on('click', function() {
         idToDelete = $(this).data('id');
+        $('#confirmHapus').html('Yakin');
     });
 
-    $('$confirmHapus').on('click', function(){
+    $('#confirmHapus').on('click', function(){
         $.ajax({
             url: 'http://localhost/utsweblanjut/public/blog/hapus/' + idToDelete,
             method: 'post',

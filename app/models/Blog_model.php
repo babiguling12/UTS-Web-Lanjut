@@ -15,10 +15,9 @@ class Blog_model {
     }
 
     public function getBlogById($id) {
-        $this->db->query("SELECT * FROM $this->table WHERE id = :id");
+        $this->db->query("SELECT * FROM $this->table WHERE id=:id");
         $this->db->bind('id', $id);
 
-        $this->db->execute();
         return $this->db->single();
     }
 
@@ -36,9 +35,14 @@ class Blog_model {
     }
 
     public function editBlog($data) {
-        $this->db->query("UPDATE $this->table SET judul=:judul, sub_judul=:sub_judul, deskripsi=:deskripsi, gambar=:gambar WHERE id=:id");
 
-        $data['gambar'] = $this->db->uploadGambar();
+        if($_FILES['gambar']['error'] === 4) {
+            $data['gambar'] = $data['gambarLama'];
+        } else {
+            $data['gambar'] = $this->db->uploadGambar();
+        }
+
+        $this->db->query("UPDATE $this->table SET judul=:judul, sub_judul=:sub_judul, deskripsi=:deskripsi, gambar=:gambar WHERE id=:id");
         $this->db->bind('id', $data['id']);
         $this->db->bind('judul', $data['judul']);
         $this->db->bind('sub_judul', $data['sub_judul']);

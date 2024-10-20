@@ -30,7 +30,7 @@
                         </div>
                         <div class="py-2">
                             <a href="#" class="badge text-bg-warning rounded-pill tampilModalEdit"
-                                data-bs-target="#formModal" data-bs-toggle="modal" data-id="<?= $blog['id'] ?>">Edit</a>
+                                data-bs-target="#formModal" data-bs-toggle="modal" data-id="<?= $blog['id'] ?>" data-gambar="<?= $blog['gambar'] ?>">Edit</a>
                             <a href="#" class="badge text-bg-danger rounded-pill tampilModalHapus"
                                 data-bs-target="#hapusModal" data-bs-toggle="modal" data-id="<?= $blog['id'] ?>">Hapus</a>
                         </div>
@@ -54,27 +54,30 @@
             </div>
             <div class="modal-body">
                 <form action="<?= BASEURL ?>/blog/tambah" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id" name="id">
+                    <input type="hidden" id="id" name="id">
                     <div class="mb-3">
                         <label for="judul" class="form-label">Judul</label>
-                        <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukan judul...." required>
+                        <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukan judul...." autocomplete="off" required>
                     </div>
                     <div class="mb-3">
                         <label for="sub_judul" class="form-label">Sub Judul</label>
                         <input type="text" class="form-control" id="sub_judul" name="sub_judul"
-                            placeholder="Masukan Sub Judul...." required>
+                            placeholder="Masukan Sub Judul...." autocomplete="off" required>
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
                         <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
                     </div>
+
                     <div class="mb-3">
                         <label for="gambar" class="form-label">Gambar</label>
+                        <input type="hidden" id="gambarLama" name="gambarLama" value="<?= isset($data['blog']['gambar']) ? $data['blog']['gambar'] : '' ?>">
+                        <img src="<?= BASEURL ?>/img/<?= $data['blog']['gambar'] ?>" alt="gambar lama" class="img-thumbnail" id="previewImg" name="previewImg" >
                         <input class="form-control" type="file" id="gambar" name="gambar" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Tambah</button>
+                        <button type="submit" class="btn btn-primary">Tambah Data</button>
                     </div>
                 </form>
             </div>
@@ -84,12 +87,14 @@
 <!-- modal -->
 
 
+
+
 <!-- modal hapus -->
-<div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="hapusConfirm" aria-hidden="true">
+<div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="judulHapus" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="hapusConfirm">Yakin ingin menghapus?</h1>
+                <h1 class="modal-title fs-5" id="judulHapus">Yakin ingin menghapus?</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-footer">
