@@ -16,27 +16,34 @@
         <h2 class="display-3">Blog</h2>
         <p class="lead">Informasi tempat pariwisata di bali</p>
         <div class="d-flex justify-content-end">
-            <div class="input-group mb-2 mt-4" style="max-width: 300px; margin-right: 100px;">
-                <input type="text" class="form-control" placeholder="Ketik judul artikel....">
-                <button class="btn" type="button" id="button-addon2">Cari</button>
-            </div>
+            <form action="<?= BASEURL ?>/home/cari" method="post">
+                <div class="input-group mb-2 mt-4" style="max-width: 300px; margin-right: 100px;">
+                    <input type="text" class="form-control" placeholder="Ketik judul artikel...." id="keyword"
+                        name="keyword" autocomplete="off">
+                    <button class="btn" type="submit" id="tombolCari">Cari</button>
+                </div>
+            </form>
         </div>
 
         <!-- card  -->
         <div class="row pt-5 g-4">
-            <?php foreach ($data['blog'] as $blog): ?>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="<?= BASEURL ?>/img/<?= $blog['gambar'] ?>" class="card-img-top"
-                            alt="<?= $blog['judul'] ?>">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $blog['judul'] ?></h5>
-                            <p class="card-text"><?= $blog['sub_judul'] ?></p>
-                            <a href="<?= BASEURL ?>/home/detail/<?= $blog['id'] ?>" class="btn">Read More</a>
+            <?php if (!empty($data['blog'])): ?>
+                <?php foreach ($data['blog'] as $blog): ?>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="<?= BASEURL ?>/img/<?= $blog['gambar'] ?>" class="card-img-top"
+                                alt="<?= $blog['judul'] ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $blog['judul'] ?></h5>
+                                <p class="card-text"><?= $blog['sub_judul'] ?></p>
+                                <a href="<?= BASEURL ?>/home/detail/<?= $blog['id'] ?>" class="btn">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Blog tidak ditemukan</p>
+            <?php endif; ?>
         </div>
     </div>
 </div>

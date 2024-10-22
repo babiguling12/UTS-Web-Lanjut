@@ -70,5 +70,17 @@ class Blog_model {
         $this->db->execute();
         return $this->db->rowCount();
     }
-    
+
+    public function cariBlog() {
+        if(isset($_POST['keyword'])) {
+            $keyword = $_POST['keyword'];
+
+            $this->db->query("SELECT * FROM $this->table WHERE judul LIKE :keyword");
+            $this->db->bind('keyword', "%$keyword%");
+
+            return $this->db->resultset();
+         } else {
+            return $this->getAllBlog();
+         }  
+    }
 }

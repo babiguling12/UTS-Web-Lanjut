@@ -1,5 +1,5 @@
 <div class="container-fluid add-blog">
-
+    <div class="container">
     <div class="row">
         <div class="col-lg-6">
             <?= Flasher::getFlash() ?>
@@ -39,6 +39,7 @@
             </ol>
         </div>
     </div>
+</div>
 </div>
 <!-- list group end  -->
 

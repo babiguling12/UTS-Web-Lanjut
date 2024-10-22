@@ -27,7 +27,7 @@
                         <a class="nav-link" href="<?= BASEURL ?>/blog">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-disabled="true">About</a>
+                        <a class="nav-link" href="<?= BASEURL ?>/about">About</a>
                     </li>
                 </ul>
             </div>

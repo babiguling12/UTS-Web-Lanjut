@@ -18,4 +18,13 @@ class Home extends Controller {
         $this->view('home/detail', $data);
         $this->view('templates/footer');
     }
+
+    public function cari() {
+        $data['judul'] = 'Home';
+        $data['blog'] = $this->model('Blog_model')->cariBlog();
+
+        $this->view('templates/header', $data);
+        $this->view('home/index', $data);
+        $this->view('templates/footer');
+    }
 }
