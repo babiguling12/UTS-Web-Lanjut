@@ -75,3 +75,21 @@ body {
     height: 200px;
     object-fit: cover;
 }
+
+.detail-blog {
+    flex: 1;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.img-detail {
+    margin-top: 7%;
+    object-fit: cover;
+}
+
+.sub-judul {
+    max-width: 500px;
+    overflow: hidden; /*menyembunyikan teks yg melebihi */ 
+    white-space: nowrap; /*biar gak ngelanjutin ke baris baru */ 
+    text-overflow: ellipsis /*biar isi ... diakhir */ 
+}

@@ -3,17 +3,23 @@ $(document).ready(function() {
    $('.tombolTambah').on('click', function() {
         $('#judulModal').html('Tambah Data Blog');
         $('.modal-footer button[type=submit').html('Tambah Data');
+
+        // reset form
         $('#id').val('');
         $('#judul').val('');
         $('#sub_judul').val('');
         $('#deskripsi').val('');
-        $('#gambar').val(''); 
+
+        // sembunyikan gambar
+        $('#img').attr('src', ''); 
+        $('#img').hide();
    });
 
     $('.tampilModalEdit').on('click', function() {
         $('#judulModal').html('Edit Data Blog');
         $('.modal-footer button[type=submit]').html('Edit Data');
         $('.modal-body form').attr('action', 'http://localhost/utsweblanjut/public/blog/edit');
+        $('#gambar').removeAttr('required');
 
         const id = $(this).data('id');
 
@@ -27,13 +33,9 @@ $(document).ready(function() {
                 $('#judul').val(data.judul);
                 $('#sub_judul').val(data.sub_judul);
                 $('#deskripsi').val(data.deskripsi);
-                $('#gambar').val(data.gambar);   
-                $('#gambarLama').val(data.gambarLama);
+                $('#img').attr('src', 'http://localhost/utsweblanjut/public/img/' + data.gambar);   
             }
         });
-
-
-        $('#previewImg').attr('src', 'http://localhost/utsweblanjut/public/img/' + $(this).data('gambar'));
     });
     
     let idToDelete;
@@ -47,7 +49,7 @@ $(document).ready(function() {
         $.ajax({
             url: 'http://localhost/utsweblanjut/public/blog/hapus/' + idToDelete,
             method: 'post',
-            success: function(response) {
+            success: function() {
                 location.reload();
             }
         });

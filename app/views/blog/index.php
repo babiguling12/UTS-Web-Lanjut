@@ -26,11 +26,11 @@
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
                             <div class="fw-bold"><?= $blog['judul'] ?></div>
-                            <?= $blog['sub_judul'] ?>
+                            <div class="sub-judul"><?= $blog['sub_judul'] ?></div>
                         </div>
                         <div class="py-2">
                             <a href="#" class="badge text-bg-warning rounded-pill tampilModalEdit"
-                                data-bs-target="#formModal" data-bs-toggle="modal" data-id="<?= $blog['id'] ?>" data-gambar="<?= $blog['gambar'] ?>">Edit</a>
+                                data-bs-target="#formModal" data-bs-toggle="modal" data-id="<?= $blog['id'] ?>">Edit</a>
                             <a href="#" class="badge text-bg-danger rounded-pill tampilModalHapus"
                                 data-bs-target="#hapusModal" data-bs-toggle="modal" data-id="<?= $blog['id'] ?>">Hapus</a>
                         </div>
@@ -68,11 +68,11 @@
                         <label for="deskripsi" class="form-label">Deskripsi</label>
                         <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
                     </div>
-
-                    <div class="mb-3">
+                    <img class="mb-3">
                         <label for="gambar" class="form-label">Gambar</label>
-                        <input type="hidden" id="gambarLama" name="gambarLama" value="<?= isset($data['blog']['gambar']) ? $data['blog']['gambar'] : '' ?>">
-                        <img src="<?= BASEURL ?>/img/<?= $data['blog']['gambar'] ?>" alt="gambar lama" class="img-thumbnail" id="previewImg" name="previewImg" >
+                        <div class="mb-3">
+                            <img src="" alt="" id="img" width="200px">
+                        </div>
                         <input class="form-control" type="file" id="gambar" name="gambar" required>
                     </div>
                     <div class="modal-footer">

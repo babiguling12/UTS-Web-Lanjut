@@ -35,19 +35,29 @@ class Blog_model {
     }
 
     public function editBlog($data) {
+        
+        $this->db->query("SELECT gambar FROM $this->table WHERE id=:id");
+        $this->db->bind('id', $data['id']);
+        $gambarLama = $this->db->single();
 
-        if($_FILES['gambar']['error'] === 4) {
-            $data['gambar'] = $data['gambarLama'];
-        } else {
-            $data['gambar'] = $this->db->uploadGambar();
-        }
+        $gambarUpdate = $gambarLama['gambar'];
 
+        if($data['gambar']['error'] !== 4) { // klo ada gambar yang diupload
+            if($gambarLama) { // klo ada yang gambar lama
+                $urlGambarLama = 'img/'. $gambarLama['gambar'];
+                if(file_exists($urlGambarLama)) { // apakah ada file yang namanya kek $gambarLama
+                    unlink($urlGambarLama);
+                }
+            }
+            $gambarUpdate = $this->db->uploadGambar();
+        } 
+        
         $this->db->query("UPDATE $this->table SET judul=:judul, sub_judul=:sub_judul, deskripsi=:deskripsi, gambar=:gambar WHERE id=:id");
         $this->db->bind('id', $data['id']);
         $this->db->bind('judul', $data['judul']);
         $this->db->bind('sub_judul', $data['sub_judul']);
         $this->db->bind('deskripsi', $data['deskripsi']);
-        $this->db->bind('gambar', $data['gambar']);
+        $this->db->bind('gambar', $gambarUpdate);
 
         $this->db->execute();
         return $this->db->rowCount();
