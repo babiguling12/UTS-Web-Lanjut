@@ -9,8 +9,8 @@
                 <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"><?= $data['blog']['judul'] ?></h1>
                 <p class="lead"><?= $data['blog']['deskripsi'] ?>.</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <button type="button" class="btn btn-sm px-4 me-md-2 mt-3"
-                        fdprocessedid="47xge1">Back</button>
+                    <a type="button" class="btn btn-sm px-4 me-md-2 mt-3"
+                        fdprocessedid="47xge1" href="<?= BASEURL ?>">Back</a>
                 </div>
             </div>
         </div>
