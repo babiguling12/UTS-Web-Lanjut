@@ -15,8 +15,8 @@ class Flasher {
                 <script>
                     Swal.fire({
                         icon: '". $_SESSION['flash']['tipe'] ."',
-                        title: '". $_SESSION['flash']['pesan'] ."',
-                        text: '". $_SESSION['flash']['aksi'] ."'
+                        title: '". $_SESSION['flash']['aksi'] ."',
+                        text: '". $_SESSION['flash']['pesan'] ."'
                     })
                 </script>
             ";

@@ -8,12 +8,12 @@
 
     <div class="row mt-3">
         <div class="col-lg-6">
-            <h3 class="display-5 py-3 ms-3">Manage Blog</h3>
+            <h3 class="display-5 py-3 ms-3" data-aos="fade-down">Manage Blog</h3>
 
             <!-- Button trigger modal -->
             <div class="row mb-3">
                 <div class="col-lg-6 mt-4 ms-3">
-                    <button type="button" class="btn tombolTambah" data-bs-toggle="modal" data-bs-target="#formModal">
+                    <button type="button" class="btn tombolTambah" data-bs-toggle="modal" data-bs-target="#formModal" data-aos="fade-right">
                         Tambah Data
                     </button>
                 </div>
@@ -23,7 +23,7 @@
             <!-- list group  -->
             <ol class="list-group list-group-numbered mt-4 ms-3">
                 <?php foreach ($data['blog'] as $blog): ?>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <li class="list-group-item d-flex justify-content-between align-items-start" data-aos="fade-right">
                         <div class="ms-2 me-auto">
                             <div class="fw-bold"><?= $blog['judul'] ?></div>
                             <div class="sub-judul"><?= $blog['sub_judul'] ?></div>

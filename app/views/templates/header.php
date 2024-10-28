@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="<?= BASEURL ?>/css/bootstrap.css">
     <link rel="stylesheet" href="<?= BASEURL ?>/css/style.css">
     <script src="https://kit.fontawesome.com/6ca4aca43a.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="<?= BASEURL ?>/js/sweetalert2.all.min.js"></script>
 </head>
 
 <body>

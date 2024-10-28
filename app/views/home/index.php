@@ -1,7 +1,7 @@
 <!-- banner  -->
 <div class="container-fluid banner">
-    <div class="container text-center">
-        <h4 class="display-6 ">Selamat Datang di Website</h4>
+    <div class="container text-center" data-aos="zoom-in">
+        <h4 class="display-6">Selamat Datang di Website</h4>
         <h3 class="display-1 fw-semibold mb-4 name-website">Payu <span>Melali</span></h3>
         <p>Anda mempunyai rencana melali? bingung mau melali nya kemana? Tenang di"payu"kan aja😁👍<br>
             Website ini menyediakan informasi tentang berbagai tempat pariwisata di Bali</p>
@@ -12,7 +12,7 @@
 
 <!-- blog section  -->
 <div class="container-fluid blog py-5">
-    <div class="container text-center">
+    <div class="container text-center" data-aos="fade-up">
         <h2 class="display-3">Blog</h2>
         <p class="lead">Informasi tempat pariwisata di bali</p>
         <div class="d-flex justify-content-end">
@@ -29,7 +29,7 @@
         <div class="row pt-5 g-4">
             <?php if (!empty($data['blog'])): ?>
                 <?php foreach ($data['blog'] as $blog): ?>
-                    <div class="col-md-4">
+                    <div class="col-md-4" data-aos="zoom-in">
                         <div class="card">
                             <img src="<?= BASEURL ?>/img/<?= $blog['gambar'] ?>" class="card-img-top"
                                 alt="<?= $blog['judul'] ?>">
